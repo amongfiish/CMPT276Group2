@@ -3,6 +3,7 @@
 package ca.accessarchitects.cmpt276group2;
 
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -22,5 +23,14 @@ public class HomeActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Medication medication = new Medication();
+
+        // test with some dummy 'MedicationCard' objects
+        for (int i = 0; i < 10; ++i)
+        {
+            MedicationCard card = new MedicationCard(this, medication);
+            ((LinearLayout)findViewById(R.id.scrollContent)).addView(card);
+        }
     }
 }
