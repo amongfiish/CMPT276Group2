@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        NavbarView navbar = new NavbarView(this);
-        ((LinearLayout)findViewById(R.id.layoutMain)).addView(navbar);
+//        NavbarView navbar = new NavbarView(this);
+//        ((LinearLayout)findViewById(R.id.layoutMain)).addView(navbar);
     }
 }

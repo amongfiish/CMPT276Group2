@@ -4,6 +4,7 @@ package ca.accessarchitects.cmpt276group2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,18 @@ import java.io.Console;
 public class NavbarView extends LinearLayout {
     public NavbarView(Context context) {
         super(context);
+        inflate();
+    }
 
+    public NavbarView(Context context, AttributeSet attributeSet)
+    {
+        super(context, attributeSet);
+        inflate();
+    }
+
+    private void inflate()
+    {
+        Context context = getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.navbar, this);
     }
