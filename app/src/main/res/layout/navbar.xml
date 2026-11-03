@@ -14,6 +14,7 @@
 
             <Button
                 android:id="@+id/buttonCalendar"
+                style="@style/Widget.AppCompat.ButtonBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -21,6 +22,7 @@
 
             <Button
                 android:id="@+id/buttonMain"
+                style="@style/Widget.AppCompat.ButtonBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -28,6 +30,7 @@
 
             <Button
                 android:id="@+id/buttonSettings"
+                style="@style/Widget.AppCompat.ButtonBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
