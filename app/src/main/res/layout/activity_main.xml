@@ -13,9 +13,42 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ca.accessarchitects.cmpt276group2.NavbarView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/buttonNewMedication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Medication" />
+
+            <Button
+                android:id="@+id/buttonNewContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Contact" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/cardParent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
     </LinearLayout>
+
+    <ca.accessarchitects.cmpt276group2.NavbarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
