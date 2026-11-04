@@ -24,7 +24,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-//        NavbarView navbar = new NavbarView(this);
-//        ((LinearLayout)findViewById(R.id.layoutMain)).addView(navbar);
+        Medication medication = new Medication("TestMedication", "1mg");
+
+        // test with some dummy 'MedicationCard' objects
+        for (int i = 0; i < 10; ++i)
+        {
+            MedicationCard card = new MedicationCard(this, medication);
+            ((LinearLayout)findViewById(R.id.cardParent)).addView(card);
+        }
     }
 }

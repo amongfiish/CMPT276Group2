@@ -5,6 +5,12 @@ package ca.accessarchitects.cmpt276group2;
 import java.util.Vector;
 
 public class Medication {
+    public Medication(String name, String dosage)
+    {
+        this.name = name;
+        this.dosage = dosage;
+    }
+
     private String name;
     private String dosage;
     // TODO image of medication
