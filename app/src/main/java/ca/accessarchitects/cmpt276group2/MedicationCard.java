@@ -1,3 +1,5 @@
+// Last edited by Lucas (November 4th, 2026)
+
 package ca.accessarchitects.cmpt276group2;
 
 import android.content.Context;
@@ -11,10 +13,12 @@ public class MedicationCard extends LinearLayout {
 
         LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         inflater.inflate(R.layout.medication_card, this);
+        ((TextView)findViewById(R.id.medicationName)).setText(medication.getName());
     }
 
     @Override
     protected void onFinishInflate() {
+        // never gets called atm because we're manually calling inflate()
         super.onFinishInflate();
     }
 }

@@ -1,7 +1,8 @@
+// Last edited by Lucas (November 4th, 2026)
+
 package ca.accessarchitects.cmpt276group2;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +10,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 

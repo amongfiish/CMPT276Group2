@@ -1,19 +1,30 @@
-// Last edited by Lucas (November 2nd, 2026)
+// Last edited by Lucas (November 4th, 2026)
 
 package ca.accessarchitects.cmpt276group2;
 
 import java.util.Vector;
 
 public class Medication {
+    final private String name;
+    final private String dosage;
+    // TODO image of medication
+
+    private Vector<Routine> routines;
+
     public Medication(String name, String dosage)
     {
         this.name = name;
         this.dosage = dosage;
     }
 
-    private String name;
-    private String dosage;
-    // TODO image of medication
+    public String getName()
+    {
+        return name;
+    }
 
-    private Vector<Routine> routines;
+    public String getDosage() {
+        return dosage;
+    }
+
+    // TODO: addRoutine() and related for release 2 :)
 }
