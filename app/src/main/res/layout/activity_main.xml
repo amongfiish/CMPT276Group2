@@ -7,11 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ca.accessarchitects.cmpt276group2.NavbarView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteY="684dp" />
-
     <LinearLayout
         android:id="@+id/layoutMain"
         android:layout_width="match_parent"
@@ -20,7 +15,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="749dp">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:id="@+id/cardParent"
@@ -30,5 +25,10 @@
         </ScrollView>
 
     </LinearLayout>
+
+    <ca.accessarchitects.cmpt276group2.NavbarView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="684dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
