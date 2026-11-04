@@ -7,7 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textAlignment="center"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
     <ca.accessarchitects.cmpt276group2.NavbarView
+        android:id="@+id/navbarView"
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:layout_marginStart="1dp"
