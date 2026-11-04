@@ -1,15 +1,15 @@
 package ca.accessarchitects.cmpt276group2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,18 +24,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        final Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                switchActivities();
-            }
-        });
+//        NavbarView navbar = new NavbarView(this);
+//        ((LinearLayout)findViewById(R.id.layoutMain)).addView(navbar);
     }
-
-    private void switchActivities()
-    {
-        Intent switchActivityIntent = new Intent(this, HomeActivity.class);
-        startActivity(switchActivityIntent);
-    }
-
 }
