@@ -1,6 +1,10 @@
+// Last edited by Lucas (November 4th, 2026)
+
 package ca.accessarchitects.cmpt276group2;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -20,5 +24,22 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ((Button)findViewById(R.id.buttonNewMedication)).setOnClickListener(v -> {
+            // new medication view (Dan)
+        });
+
+        ((Button)findViewById(R.id.buttonNewContact)).setOnClickListener(v -> {
+            // new contact view (Aneesh)
+        });
+
+        Medication medication = new Medication("TestMedication", "1mg");
+
+        // test with some dummy 'MedicationCard' objects
+        for (int i = 0; i < 10; ++i)
+        {
+            MedicationCard card = new MedicationCard(this, medication);
+            ((LinearLayout)findViewById(R.id.cardParent)).addView(card);
+        }
     }
 }
