@@ -18,6 +18,7 @@ public class CalendarActivity extends AppCompatActivity {
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                // update the TextView to match the date selected in the CalendarView
                 String date = dayOfMonth + "-" + (month + 1) + "-" + year;
                 dateView.setText(date);
             }

@@ -1,9 +1,8 @@
-// Last edited by Lucas (November 4th, 2026)
-
 package ca.accessarchitects.cmpt276group2;
 
 import java.util.Vector;
 
+// stores information about a medication
 public class Medication {
     final private String name;
     final private String dosage;

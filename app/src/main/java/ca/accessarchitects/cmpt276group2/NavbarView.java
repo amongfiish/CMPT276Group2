@@ -1,5 +1,3 @@
-// Last edited by Lucas (November 3rd, 2026)
-
 package ca.accessarchitects.cmpt276group2;
 
 import android.content.Context;
@@ -10,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+// the custom "Navbar" View at the bottom of each Activity
 public class NavbarView extends LinearLayout {
     public NavbarView(Context context) {
         super(context);
@@ -38,11 +37,6 @@ public class NavbarView extends LinearLayout {
         Button mainButton = findViewById(R.id.buttonMain);
         Button settingsButton = findViewById(R.id.buttonSettings);
 
-        /* TODO:
-            Uncomment the relevant intent and replace '<class>' with your activity.
-            Also uncomment the startActivity() call in the onClickListener below.
-            - Lucas
-         */
         Context context = this.getContext();
         Intent calendarSwitchIntent = new Intent(context, CalendarActivity.class);
         Intent mainSwitchIntent = new Intent(context, MainActivity.class);

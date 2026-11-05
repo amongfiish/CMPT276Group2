@@ -1,11 +1,10 @@
-// Last edited by Lucas (November 2nd, 2026)
-
 package ca.accessarchitects.cmpt276group2;
 
-import java.util.Vector;
-
+// manages information about notifications to send to the user and their contacts.
 public class Notification {
-    // TODO times and dates
+    // TODO: times and dates
     private String message;
     private boolean cleared;
+
+    // TODO: trigger()
 }
