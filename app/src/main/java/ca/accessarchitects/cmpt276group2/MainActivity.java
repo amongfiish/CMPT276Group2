@@ -1,5 +1,3 @@
-// Last edited by Lucas (November 4th, 2026)
-
 package ca.accessarchitects.cmpt276group2;
 
 import android.os.Bundle;
@@ -33,9 +31,10 @@ public class MainActivity extends AppCompatActivity {
             // new contact view (Aneesh)
         });
 
+        // test medication
         Medication medication = new Medication("TestMedication", "1mg");
-
-        // test with some dummy 'MedicationCard' objects
+        // test the scrolling view with some dummy 'MedicationCard' object
+        // using the test medication
         for (int i = 0; i < 10; ++i)
         {
             MedicationCard card = new MedicationCard(this, medication);

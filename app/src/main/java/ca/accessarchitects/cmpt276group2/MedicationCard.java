@@ -1,5 +1,3 @@
-// Last edited by Lucas (November 4th, 2026)
-
 package ca.accessarchitects.cmpt276group2;
 
 import android.content.Context;
@@ -7,6 +5,7 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+// a custom View type that displays information about a medication to the user
 public class MedicationCard extends LinearLayout {
     public MedicationCard(Context context, Medication medication) {
         super(context);
@@ -18,7 +17,7 @@ public class MedicationCard extends LinearLayout {
 
     @Override
     protected void onFinishInflate() {
-        // never gets called atm because we're manually calling inflate()
+        // never gets called because we're manually calling inflate() in the constructor
         super.onFinishInflate();
     }
 }
