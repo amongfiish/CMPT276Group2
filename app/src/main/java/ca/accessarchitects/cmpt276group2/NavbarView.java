@@ -46,14 +46,14 @@ public class NavbarView extends LinearLayout {
             - Lucas
          */
         Context context = this.getContext();
-        // Intent calendarSwitchIntent = new Intent(context, <class>);
+        Intent calendarSwitchIntent = new Intent(context, Calendar.class);
         Intent mainSwitchIntent = new Intent(context, MainActivity.class);
         // Intent settingsSwitchIntent = new Intent(context, <class>);
 
         calendarButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                // context.startActivity(calendarSwitchIntent);
+                 context.startActivity(calendarSwitchIntent);
             }
         });
 
