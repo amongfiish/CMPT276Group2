@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import java.io.Console;
-
 public class NavbarView extends LinearLayout {
     public NavbarView(Context context) {
         super(context);
@@ -46,7 +44,7 @@ public class NavbarView extends LinearLayout {
             - Lucas
          */
         Context context = this.getContext();
-        Intent calendarSwitchIntent = new Intent(context, Calendar.class);
+        Intent calendarSwitchIntent = new Intent(context, CalendarActivity.class);
         Intent mainSwitchIntent = new Intent(context, MainActivity.class);
         // Intent settingsSwitchIntent = new Intent(context, <class>);
 
