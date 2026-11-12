@@ -1,6 +1,9 @@
 package ca.accessarchitects.cmpt276group2;
 
+import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -23,13 +26,18 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+
         ((Button)findViewById(R.id.buttonNewMedication)).setOnClickListener(v -> {
             // new medication view (Dan)
         });
 
         ((Button)findViewById(R.id.buttonNewContact)).setOnClickListener(v -> {
             // new contact view (Aneesh)
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(intent);
         });
+
+
 
         // test medication
         Medication medication = new Medication("TestMedication", "1mg");
