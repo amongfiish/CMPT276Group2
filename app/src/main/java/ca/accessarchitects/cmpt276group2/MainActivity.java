@@ -12,6 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
         ((Button)findViewById(R.id.buttonNewMedication)).setOnClickListener(v -> {
             // new medication view (Dan)
         });
@@ -36,17 +36,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
         });
-
-
-
-        // test medication
-        Medication medication = new Medication("TestMedication", "1mg");
-        // test the scrolling view with some dummy 'MedicationCard' object
-        // using the test medication
-        for (int i = 0; i < 10; ++i)
-        {
-            MedicationCard card = new MedicationCard(this, medication);
-            ((LinearLayout)findViewById(R.id.cardParent)).addView(card);
-        }
     }
 }
