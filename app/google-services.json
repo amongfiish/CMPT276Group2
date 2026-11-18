@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "507166126485",
+    "project_id": "medicalendar-54d35",
+    "storage_bucket": "medicalendar-54d35.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:507166126485:android:69940e3c48debc8f1d069c",
+        "android_client_info": {
+          "package_name": "ca.accessarchitects.cmpt276group2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5Zxn-pE78LBMlF7TWUfSGw3BDWJf6fbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
