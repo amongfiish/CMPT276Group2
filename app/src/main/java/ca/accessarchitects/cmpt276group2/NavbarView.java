@@ -39,8 +39,11 @@ public class NavbarView extends LinearLayout {
 
         Context context = this.getContext();
         Intent calendarSwitchIntent = new Intent(context, CalendarActivity.class);
+        calendarSwitchIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         Intent mainSwitchIntent = new Intent(context, MainActivity.class);
+        mainSwitchIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         Intent settingsSwitchIntent = new Intent(context, SettingsActivity.class);
+        settingsSwitchIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
         calendarButton.setOnClickListener(new OnClickListener() {
             @Override

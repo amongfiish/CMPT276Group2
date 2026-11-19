@@ -1,11 +1,8 @@
 package ca.accessarchitects.cmpt276group2;
 
 import android.content.Intent;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -26,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
         ((Button)findViewById(R.id.buttonNewMedication)).setOnClickListener(v -> {
-            // new medication view (Dan)
+            // new medication view (Lucas)
+            Intent intent = new Intent(MainActivity.this, MedicationActivity.class);
+            startActivity(intent);
         });
 
         ((Button)findViewById(R.id.buttonNewContact)).setOnClickListener(v -> {
@@ -36,17 +34,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
         });
-
-
-
-        // test medication
-        Medication medication = new Medication("TestMedication", "1mg");
-        // test the scrolling view with some dummy 'MedicationCard' object
-        // using the test medication
-        for (int i = 0; i < 10; ++i)
-        {
-            MedicationCard card = new MedicationCard(this, medication);
-            ((LinearLayout)findViewById(R.id.cardParent)).addView(card);
-        }
     }
 }

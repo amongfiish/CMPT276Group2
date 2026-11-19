@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CMPT276Group2</string>
+    <string name="button_add_medication">Add Medication</string>
 </resources>
