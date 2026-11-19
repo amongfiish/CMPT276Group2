@@ -22,8 +22,21 @@
             android:layout_height="wrap_content"
             android:text="@string/button_add_medication" />
 
+            <Button
+                android:id="@+id/buttonNewContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="New Contact" />
+
+        </LinearLayout>
+
         <Button
-            android:id="@+id/buttonNewContact"
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Out" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="New Contact" />
