@@ -23,10 +23,13 @@
         </activity>
         <activity
             android:name=".CalendarActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".SettingsActivity"
-            android:exported="false"/>
+            android:exported="false" />
+        <activity
+            android:name=".MedicationActivity"
+            android:exported="false" />
         <activity
             android:name=".ContactActivity"
             android:exported="false" />
