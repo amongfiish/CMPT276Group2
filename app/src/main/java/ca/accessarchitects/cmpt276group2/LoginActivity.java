@@ -14,7 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity
+{
 
     private FirebaseAuth mAuth;
     private EditText emailField, passwordField;
@@ -23,7 +24,8 @@ public class LoginActivity extends AppCompatActivity {
     private TextView goToSignUpText;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -78,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void loginUser(String email, String password) {
+    private void loginUser(String email, String password)
+    {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
@@ -91,14 +94,16 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    private void navigateToMainActivity() {
+    private void navigateToMainActivity()
+    {
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }
 
-    private void resetPassword() {
+    private void resetPassword()
+    {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Reset Password");
         builder.setMessage("Enter the email address associated with your account.");
@@ -127,7 +132,8 @@ public class LoginActivity extends AppCompatActivity {
         builder.show();
     }
 
-    private void sendPasswordReset(String email) {
+    private void sendPasswordReset(String email)
+    {
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
@@ -145,13 +151,16 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    private boolean validateEmailField(String email) {
-        if (email.isEmpty()) {
+    private boolean validateEmailField(String email)
+    {
+        if (email.isEmpty())
+        {
             emailField.setError("Email is required");
             emailField.requestFocus();
             return false;
         }
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
             emailField.setError("Please enter a valid email address");
             emailField.requestFocus();
             return false;

@@ -1,17 +1,21 @@
 package ca.accessarchitects.cmpt276group2;
 
 // skeleton of the Contact class to be used with notifications
-public class Contact {
+public class Contact
+{
     private String name;
     private String email;
     private String phoneNumber;
 
-    public Contact(String name, String email, String phoneNumber) {
+    // constructor
+    public Contact(String name, String email, String phoneNumber)
+    {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
     }
 
+    // getters and setters
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 

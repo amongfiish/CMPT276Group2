@@ -2,7 +2,10 @@ package ca.accessarchitects.cmpt276group2;
 
 import java.util.Vector;
 
-public class DataHandler {
+// tracks information about the user's contacts and medications in a singleton
+// so that it can be accessed anywhere it is needed
+public class DataHandler
+{
     public Vector<Contact> contacts;
     public Vector<Medication> medications;
 

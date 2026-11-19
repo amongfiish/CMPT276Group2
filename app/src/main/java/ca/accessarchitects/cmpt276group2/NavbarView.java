@@ -9,8 +9,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 // the custom "Navbar" View at the bottom of each Activity
-public class NavbarView extends LinearLayout {
-    public NavbarView(Context context) {
+public class NavbarView extends LinearLayout
+{
+    public NavbarView(Context context)
+    {
         super(context);
         inflate();
     }
@@ -21,6 +23,7 @@ public class NavbarView extends LinearLayout {
         inflate();
     }
 
+    // inflate the layout xml
     private void inflate()
     {
         Context context = getContext();
@@ -28,6 +31,7 @@ public class NavbarView extends LinearLayout {
         inflater.inflate(R.layout.navbar, this);
     }
 
+    // set up click handlers and intent behaviour
     @Override
     protected void onFinishInflate()
     {

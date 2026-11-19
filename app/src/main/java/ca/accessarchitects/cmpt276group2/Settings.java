@@ -1,7 +1,8 @@
 package ca.accessarchitects.cmpt276group2;
 
 // Stores user preferences regarding appearance and functionality.
-public class Settings {
+public class Settings
+{
     // settings is a singleton so that only one instance can exist
     // globally.
     private static Settings singleton = null;
@@ -26,14 +27,13 @@ public class Settings {
         return singleton;
     }
 
-    // IDE generated getters and setters for the settings.
-    // The setters should set in motion anything that's meant to happen
-    // when the settings are changed.
+    // these are getters and setters
     public boolean isSendEmailNotifications() {
         return sendEmailNotifications;
     }
 
-    public void setSendEmailNotifications(boolean sendEmailNotifications) {
+    public void setSendEmailNotifications(boolean sendEmailNotifications)
+    {
         this.sendEmailNotifications = sendEmailNotifications;
     }
 
@@ -41,7 +41,8 @@ public class Settings {
         return sendSmsNotifications;
     }
 
-    public void setSendSmsNotifications(boolean sendSmsNotifications) {
+    public void setSendSmsNotifications(boolean sendSmsNotifications)
+    {
         this.sendSmsNotifications = sendSmsNotifications;
     }
 
