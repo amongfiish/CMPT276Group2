@@ -14,11 +14,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         void onContactClick(int position);
     }
 
-    private final List<Contact> contacts;
     private final OnContactClickListener listener;
 
-    public ContactAdapter(List<Contact> contacts, OnContactClickListener listener) {
-        this.contacts = contacts;
+    public ContactAdapter(OnContactClickListener listener)
+    {
         this.listener = listener;
     }
 
@@ -32,7 +31,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     @Override
     public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
-        Contact contact = contacts.get(position);
+        Contact contact = DataHandler.getInstance().getContact(position);
         holder.name.setText(contact.getName());
         holder.email.setText(contact.getEmail());
         holder.phone.setText(contact.getPhoneNumber());
@@ -47,7 +46,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     @Override
     public int getItemCount() {
-        return contacts.size();
+        return DataHandler.getInstance().getContactCount();
     }
 
     static class ContactViewHolder extends RecyclerView.ViewHolder {
@@ -58,10 +57,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         ContactViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.contactName);
-            email = itemView.findViewById(R.id.contactEmail);
+            name = itemView.findViewById(R.id.medicationName);
+            email = itemView.findViewById(R.id.medicationDosage);
             phone = itemView.findViewById(R.id.contactPhone);
-            edit = itemView.findViewById(R.id.editContactButton);
+            edit = itemView.findViewById(R.id.editMedicationButton);
         }
     }
 }

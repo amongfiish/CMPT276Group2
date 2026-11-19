@@ -17,7 +17,6 @@ import java.util.List;
 
 public class ContactActivity extends AppCompatActivity {
 
-    private final List<Contact> contacts = new ArrayList<>();
     private ContactAdapter adapter;
     private TextView emptyText;
 
@@ -31,7 +30,7 @@ public class ContactActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.contactsRecyclerView);
         FloatingActionButton addButton = findViewById(R.id.addContactButton);
 
-        adapter = new ContactAdapter(contacts, position -> showContactDialog(position));
+        adapter = new ContactAdapter(position -> showContactDialog(position));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -42,7 +41,7 @@ public class ContactActivity extends AppCompatActivity {
 
     private void showContactDialog(int position) {
         boolean isEdit = position >= 0;
-        Contact existing = isEdit ? contacts.get(position) : null;
+        Contact existing = DataHandler.getInstance().getContact(position);
 
         View form = LayoutInflater.from(this).inflate(R.layout.add_contact, null);
         TextInputEditText inputName = form.findViewById(R.id.inputName);
@@ -63,7 +62,7 @@ public class ContactActivity extends AppCompatActivity {
 
         if (isEdit) {
             builder.setNeutralButton("Delete", (d, which) -> {
-                contacts.remove(position);
+                DataHandler.getInstance().removeContact(position);
                 adapter.notifyItemRemoved(position);
                 updateEmptyState();
             });
@@ -93,8 +92,8 @@ public class ContactActivity extends AppCompatActivity {
                         existing.setPhoneNumber(phone);
                         adapter.notifyItemChanged(position);
                     } else {
-                        contacts.add(new Contact(name, email, phone));
-                        adapter.notifyItemInserted(contacts.size() - 1);
+                        int newPosition = DataHandler.getInstance().addContact(new Contact(name, email, phone));
+                        adapter.notifyItemInserted(newPosition);
                     }
                     updateEmptyState();
                     dialog.dismiss();
@@ -104,6 +103,6 @@ public class ContactActivity extends AppCompatActivity {
     }
 
     private void updateEmptyState() {
-        emptyText.setVisibility(contacts.isEmpty() ? View.VISIBLE : View.GONE);
+        emptyText.setVisibility(DataHandler.getInstance().getContactCount() == 0 ? View.VISIBLE : View.GONE);
     }
 }
