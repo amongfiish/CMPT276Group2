@@ -29,8 +29,16 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword"
-        android:minHeight="48dp"
-        android:layout_marginBottom="24dp"/>
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/passwordReq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Minimum 6 characters and must include: 1 uppercase, 1 lowercase, 1 number, and 1 special character"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="20dp" />
 
     <Button
         android:id="@+id/signUpButton"
@@ -38,5 +46,13 @@
         android:layout_height="wrap_content"
         android:text="Sign Up"
         android:minHeight="48dp"/>
+
+    <TextView
+        android:id="@+id/backToLoginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Log In"
+        android:textColor="@android:color/holo_blue_dark"
+        android:padding="8dp" />
 
 </LinearLayout>

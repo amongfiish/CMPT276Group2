@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome Back"
+        android:text="Welcome Back!"
         android:textSize="28sp"
         android:textStyle="bold"
         android:layout_marginBottom="32dp"/>
@@ -37,15 +37,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log In"
-        android:minHeight="48dp"
-        android:layout_marginBottom="16dp"/>
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/forgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:textColor="@android:color/holo_blue_dark"
+        android:padding="8dp" />
 
     <TextView
         android:id="@+id/goToSignUpText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Don't have an account? Sign Up"
-        android:textColor="@android:color/holo_blue_dark"
-        android:padding="8dp"/>
+        android:textColor="@android:color/holo_blue_dark" />
 
 </LinearLayout>
