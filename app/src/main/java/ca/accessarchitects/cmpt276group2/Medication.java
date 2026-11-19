@@ -3,7 +3,8 @@ package ca.accessarchitects.cmpt276group2;
 import java.util.Vector;
 
 // stores information about a medication
-public class Medication {
+public class Medication
+{
     private String name;
     private String dosage;
     // TODO image of medication
@@ -16,6 +17,7 @@ public class Medication {
         this.dosage = dosage;
     }
 
+    // getters/setters
     public String getName()
     {
         return name;

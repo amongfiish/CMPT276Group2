@@ -8,9 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
+// manages the elements in our scrolling list of contacts.
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder>
+{
 
-    public interface OnContactClickListener {
+    public interface OnContactClickListener
+    {
         void onContactClick(int position);
     }
 
@@ -21,16 +24,20 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         this.listener = listener;
     }
 
+    // inflate list element layout
     @NonNull
     @Override
-    public ContactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ContactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_contact, parent, false);
         return new ContactViewHolder(view);
     }
 
+    // populate list element
     @Override
-    public void onBindViewHolder(@NonNull ContactViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ContactViewHolder holder, int position)
+    {
         Contact contact = DataHandler.getInstance().getContact(position);
         holder.name.setText(contact.getName());
         holder.email.setText(contact.getEmail());
@@ -38,18 +45,22 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         holder.edit.setOnClickListener(v -> {
             int pos = holder.getBindingAdapterPosition();
-            if (pos != RecyclerView.NO_POSITION) {
+            if (pos != RecyclerView.NO_POSITION)
+            {
                 listener.onContactClick(pos);
             }
         });
     }
 
+    // how many contacts total?
     @Override
     public int getItemCount() {
         return DataHandler.getInstance().getContactCount();
     }
 
-    static class ContactViewHolder extends RecyclerView.ViewHolder {
+    // the data holder itself
+    static class ContactViewHolder extends RecyclerView.ViewHolder
+    {
         final TextView name;
         final TextView email;
         final TextView phone;

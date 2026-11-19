@@ -13,13 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class ContactActivity extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity
+{
 
     private ContactAdapter adapter;
     private TextView emptyText;
 
+    // set up everything necessary to use the recycler view
+    // and stuff related to the creation, editing, deletion of contacts.
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         WindowCompat.enableEdgeToEdge(getWindow());
         setContentView(R.layout.activity_contacts);
@@ -36,7 +40,9 @@ public class ContactActivity extends AppCompatActivity {
         updateEmptyState();
     }
 
-    private void showContactDialog(int position) {
+    // the contact creation/editing pop-up function
+    private void showContactDialog(int position)
+    {
         boolean isEdit = position >= 0;
         Contact existing = DataHandler.getInstance().getContact(position);
 
@@ -45,7 +51,8 @@ public class ContactActivity extends AppCompatActivity {
         TextInputEditText inputEmail = form.findViewById(R.id.inputEmail);
         TextInputEditText inputPhone = form.findViewById(R.id.inputPhone);
 
-        if (isEdit) {
+        if (isEdit)
+        {
             inputName.setText(existing.getName());
             inputEmail.setText(existing.getEmail());
             inputPhone.setText(existing.getPhoneNumber());
@@ -57,7 +64,8 @@ public class ContactActivity extends AppCompatActivity {
                 .setPositiveButton("Save", null)
                 .setNegativeButton("Cancel", null);
 
-        if (isEdit) {
+        if (isEdit)
+        {
             builder.setNeutralButton("Delete", (d, which) -> {
                 DataHandler.getInstance().removeContact(position);
                 adapter.notifyItemRemoved(position);
@@ -67,6 +75,7 @@ public class ContactActivity extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
 
+        // input validation
         dialog.setOnShowListener(d ->
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
                     String name = inputName.getText().toString().trim();
@@ -94,12 +103,15 @@ public class ContactActivity extends AppCompatActivity {
                     }
                     updateEmptyState();
                     dialog.dismiss();
-                }));
+                })
+        );
 
         dialog.show();
     }
 
-    private void updateEmptyState() {
+    // should we show/hide the 'empty' text?
+    private void updateEmptyState()
+    {
         emptyText.setVisibility(DataHandler.getInstance().getContactCount() == 0 ? View.VISIBLE : View.GONE);
     }
 }

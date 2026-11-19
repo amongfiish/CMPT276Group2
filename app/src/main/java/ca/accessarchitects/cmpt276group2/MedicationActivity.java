@@ -13,13 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
-public class MedicationActivity extends AppCompatActivity {
+// functionally the same as ContactActivity. might be able to condense these into one file.
+// see that file for comments.
+public class MedicationActivity extends AppCompatActivity
+{
 
     private MedicationAdapter adapter;
     private TextView emptyText;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         WindowCompat.enableEdgeToEdge(getWindow());
         setContentView(R.layout.activity_medications);
@@ -36,7 +40,8 @@ public class MedicationActivity extends AppCompatActivity {
         updateEmptyState();
     }
 
-    private void showMedicationDialog(int position) {
+    private void showMedicationDialog(int position)
+    {
         boolean isEdit = position >= 0;
         Medication existing = DataHandler.getInstance().getMedication(position);
 
@@ -45,7 +50,8 @@ public class MedicationActivity extends AppCompatActivity {
         TextInputEditText inputDosage = form.findViewById(R.id.inputDosage);
         // TODO: type inputPhone = form.findViewById(R.id.inputImage);
 
-        if (isEdit) {
+        if (isEdit)
+        {
             inputName.setText(existing.getName());
             inputDosage.setText(existing.getDosage());
         }
@@ -56,7 +62,8 @@ public class MedicationActivity extends AppCompatActivity {
                 .setPositiveButton("Save", null)
                 .setNegativeButton("Cancel", null);
 
-        if (isEdit) {
+        if (isEdit)
+        {
             builder.setNeutralButton("Delete", (d, which) -> {
                 DataHandler.getInstance().removeMedication(position);
                 adapter.notifyItemRemoved(position);
@@ -91,7 +98,8 @@ public class MedicationActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    private void updateEmptyState() {
+    private void updateEmptyState()
+    {
         emptyText.setVisibility(DataHandler.getInstance().getMedicationCount() == 0 ? View.VISIBLE : View.GONE);
     }
 }
