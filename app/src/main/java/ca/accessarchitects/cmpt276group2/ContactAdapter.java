@@ -57,10 +57,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
         ContactViewHolder(@NonNull View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.medicationName);
-            email = itemView.findViewById(R.id.medicationDosage);
+            name = itemView.findViewById(R.id.contactName);
+            email = itemView.findViewById(R.id.contactEmail);
             phone = itemView.findViewById(R.id.contactPhone);
-            edit = itemView.findViewById(R.id.editMedicationButton);
+            edit = itemView.findViewById(R.id.editContactButton);
         }
     }
 }

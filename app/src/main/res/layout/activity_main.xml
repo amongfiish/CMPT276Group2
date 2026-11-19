@@ -20,7 +20,7 @@
             android:id="@+id/buttonNewMedication"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="New Medication" />
+            android:text="@string/button_add_medication" />
 
         <Button
             android:id="@+id/buttonNewContact"

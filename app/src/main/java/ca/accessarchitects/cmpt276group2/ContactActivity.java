@@ -12,8 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -37,7 +35,6 @@ public class ContactActivity extends AppCompatActivity {
         addButton.setOnClickListener(v -> showContactDialog(-1));
         updateEmptyState();
     }
-
 
     private void showContactDialog(int position) {
         boolean isEdit = position >= 0;

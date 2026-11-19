@@ -28,12 +28,11 @@
             android:name=".SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".ContactActivity"
+            android:name=".MedicationActivity"
             android:exported="false" />
         <activity
-            android:name=".MedicationsActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:name=".ContactActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

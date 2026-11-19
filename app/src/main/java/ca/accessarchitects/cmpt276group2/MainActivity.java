@@ -1,18 +1,14 @@
 package ca.accessarchitects.cmpt276group2;
 
 import android.content.Intent;
-import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ((Button)findViewById(R.id.buttonNewMedication)).setOnClickListener(v -> {
-            // new medication view (Dan)
+            // new medication view (Lucas)
+            Intent intent = new Intent(MainActivity.this, MedicationActivity.class);
+            startActivity(intent);
         });
 
         ((Button)findViewById(R.id.buttonNewContact)).setOnClickListener(v -> {
