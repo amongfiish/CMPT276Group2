@@ -48,6 +48,16 @@ public class DataHandler {
         return medications.elementAt(index);
     }
 
+    public int getContactCount()
+    {
+        return contacts.size();
+    }
+
+    public int getMedicationCount()
+    {
+        return medications.size();
+    }
+
     public int addContact(Contact contact)
     {
         contacts.add(contact);
