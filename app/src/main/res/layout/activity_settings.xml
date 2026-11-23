@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
@@ -20,6 +21,144 @@
             android:textAlignment="center"
             android:textSize="34sp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:text="Log Out" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="First Reminder Notification (Before dosage time)"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="100dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:checkedButton="@+id/reminder1Option1">
+
+            <RadioButton
+                android:id="@+id/reminder1Option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="25 mins" />
+
+            <RadioButton
+                android:id="@+id/reminder1Option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20 mins" />
+
+            <RadioButton
+                android:id="@+id/reminder1Option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 mins" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Second Reminder Notification (Before dosage time)"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:checkedButton="@+id/reminder2Option1">
+
+            <RadioButton
+                android:id="@+id/reminder2Option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 mins" />
+
+            <RadioButton
+                android:id="@+id/reminder2Option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 mins" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="First Warning Notification (After dosage time)"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:checkedButton="@+id/warning1Option1">
+
+            <RadioButton
+                android:id="@+id/warning1Option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 mins" />
+
+            <RadioButton
+                android:id="@+id/warning1Option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 mins" />
+
+            <RadioButton
+                android:id="@+id/warning1Option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7 mins" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Second Warning Notification (After dosage time)"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="25dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:checkedButton="@+id/warning2Option1">
+
+            <RadioButton
+                android:id="@+id/warning2Option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10 mins" />
+
+            <RadioButton
+                android:id="@+id/warning2Option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 mins" />
+
+            <RadioButton
+                android:id="@+id/warning2Option3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15 mins" />
+        </RadioGroup>
 
     </LinearLayout>
 
