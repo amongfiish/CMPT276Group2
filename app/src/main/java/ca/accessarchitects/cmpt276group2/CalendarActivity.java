@@ -142,7 +142,7 @@ public class CalendarActivity extends AppCompatActivity
         return true;
     }
 
-    private String monhName(int month)
+    private String monthName(int month)
     {
         return new DateFormatSymbols().getMonths()[month];
     }
