@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
@@ -23,6 +22,7 @@ public class MedicationActivity extends AppCompatActivity
 
     private MedicationAdapter adapter;
     private TextView emptyText;
+    private LocalTime medicationTime = LocalTime.MIDNIGHT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -35,7 +35,7 @@ public class MedicationActivity extends AppCompatActivity
         RecyclerView recyclerView = findViewById(R.id.medicationsRecyclerView);
         FloatingActionButton addButton = findViewById(R.id.addMedicationButton);
 
-        adapter = new MedicationAdapter(position -> showMedicationDialog(position));
+        adapter = new MedicationAdapter(this::showMedicationDialog);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
@@ -49,23 +49,28 @@ public class MedicationActivity extends AppCompatActivity
         boolean isEdit = position >= 0;
         Medication existing = DataHandler.getInstance().getMedication(position);
 
+        medicationTime = LocalTime.MIDNIGHT;
+
         View form = LayoutInflater.from(this).inflate(R.layout.add_medication, null);
         TextInputEditText inputName = form.findViewById(R.id.inputName);
         TextInputEditText inputDosage = form.findViewById(R.id.inputDosage);
         TextView inputTime = form.findViewById(R.id.timeText);
 
         Button setTimeButton = form.findViewById(R.id.buttonSetTime);
-        LocalTime time = LocalTime.MIDNIGHT;
         setTimeButton.setOnClickListener(v -> {
-            new TimePickerFragment(time).show(getSupportFragmentManager(), "timePicker");
+            // TODO: make the spinner reflect the previously set time.
+            new TimePickerFragment().show(getSupportFragmentManager(), "timePicker");
         });
 
         if (isEdit)
         {
+            medicationTime = existing.getTime();
+
             inputName.setText(existing.getName());
             inputDosage.setText(existing.getDosage());
-            inputTime.setText(existing.getTime().toString());
         }
+        // TODO: make inputTime text update when the time selector exits.
+        inputTime.setText(medicationTime.toString());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setTitle(isEdit ? "Edit Medication" : "Add Medication")
@@ -97,11 +102,11 @@ public class MedicationActivity extends AppCompatActivity
                     if (isEdit) {
                         existing.setName(name);
                         existing.setDosage(dosage);
-                        existing.setTime(time);
+                        existing.setTime(medicationTime);
                         adapter.notifyItemChanged(position);
                     } else {
                         int newPosition = DataHandler.getInstance().addMedication(new Medication(name, dosage));
-                        DataHandler.getInstance().getMedication(newPosition).setTime(time);
+                        DataHandler.getInstance().getMedication(newPosition).setTime(medicationTime);
                         adapter.notifyItemInserted(newPosition);
                     }
                     updateEmptyState();
@@ -109,6 +114,11 @@ public class MedicationActivity extends AppCompatActivity
                 }));
 
         dialogCreateMedication.show();
+    }
+
+    public void processSelectedTime(int hour, int minute)
+    {
+        medicationTime = LocalTime.of(hour, minute);
     }
 
     private void updateEmptyState()

@@ -14,13 +14,6 @@ import java.util.Calendar;
 public class TimePickerFragment extends DialogFragment
     implements TimePickerDialog.OnTimeSetListener
 {
-    private LocalTime time;
-
-    public TimePickerFragment(LocalTime time)
-    {
-        this.time = time;
-    }
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState)
     {
@@ -34,6 +27,7 @@ public class TimePickerFragment extends DialogFragment
 
     public void onTimeSet(TimePicker view, int hourOfDay, int minute)
     {
-        time = LocalTime.of(hourOfDay, minute);
+        MedicationActivity activity = (MedicationActivity)getActivity();
+        activity.processSelectedTime(hourOfDay, minute);
     }
 }
