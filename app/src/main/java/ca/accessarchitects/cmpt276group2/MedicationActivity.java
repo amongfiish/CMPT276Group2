@@ -3,6 +3,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.time.LocalTime;
 
 // functionally the same as ContactActivity. might be able to condense these into one file.
 // see that file for comments.
@@ -37,6 +40,7 @@ public class MedicationActivity extends AppCompatActivity
         recyclerView.setAdapter(adapter);
 
         addButton.setOnClickListener(v -> showMedicationDialog(-1));
+
         updateEmptyState();
     }
 
@@ -48,12 +52,19 @@ public class MedicationActivity extends AppCompatActivity
         View form = LayoutInflater.from(this).inflate(R.layout.add_medication, null);
         TextInputEditText inputName = form.findViewById(R.id.inputName);
         TextInputEditText inputDosage = form.findViewById(R.id.inputDosage);
-        // TODO: type inputPhone = form.findViewById(R.id.inputImage);
+        TextView inputTime = form.findViewById(R.id.timeText);
+
+        Button setTimeButton = form.findViewById(R.id.buttonSetTime);
+        LocalTime time = LocalTime.MIDNIGHT;
+        setTimeButton.setOnClickListener(v -> {
+            new TimePickerFragment(time).show(getSupportFragmentManager(), "timePicker");
+        });
 
         if (isEdit)
         {
             inputName.setText(existing.getName());
             inputDosage.setText(existing.getDosage());
+            inputTime.setText(existing.getTime().toString());
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this)
@@ -71,10 +82,10 @@ public class MedicationActivity extends AppCompatActivity
             });
         }
 
-        AlertDialog dialog = builder.create();
+        AlertDialog dialogCreateMedication = builder.create();
 
-        dialog.setOnShowListener(d ->
-                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
+        dialogCreateMedication.setOnShowListener(d ->
+                dialogCreateMedication.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
                     String name = inputName.getText().toString().trim();
                     String dosage = inputDosage.getText().toString().trim();
 
@@ -86,16 +97,18 @@ public class MedicationActivity extends AppCompatActivity
                     if (isEdit) {
                         existing.setName(name);
                         existing.setDosage(dosage);
+                        existing.setTime(time);
                         adapter.notifyItemChanged(position);
                     } else {
                         int newPosition = DataHandler.getInstance().addMedication(new Medication(name, dosage));
+                        DataHandler.getInstance().getMedication(newPosition).setTime(time);
                         adapter.notifyItemInserted(newPosition);
                     }
                     updateEmptyState();
-                    dialog.dismiss();
+                    dialogCreateMedication.dismiss();
                 }));
 
-        dialog.show();
+        dialogCreateMedication.show();
     }
 
     private void updateEmptyState()

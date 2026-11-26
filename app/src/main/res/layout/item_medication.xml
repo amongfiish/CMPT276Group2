@@ -37,6 +37,12 @@
                 android:textColor="#444444"
                 android:textSize="14sp" />
 
+            <TextView
+                android:id="@+id/medicationTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
         </LinearLayout>
 
         <ImageButton
