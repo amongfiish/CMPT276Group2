@@ -66,7 +66,7 @@
             android:text="Monday" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggleMonday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -89,7 +89,7 @@
             android:text="Tuesday" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggleTuesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -112,7 +112,7 @@
             android:text="Wednesday" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggleWednesday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -135,7 +135,7 @@
             android:text="Thursday" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggleThursday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -158,7 +158,7 @@
             android:text="Friday" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggleFriday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -181,7 +181,7 @@
             android:text="Saturday" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggleSaturday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
@@ -204,7 +204,7 @@
             android:text="Sunday" />
 
         <ToggleButton
-            android:id="@+id/toggleButton2"
+            android:id="@+id/toggleSunday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"

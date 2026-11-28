@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ToggleButton;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
@@ -14,6 +16,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.time.LocalTime;
+
+// TODO: remove all the if statements sorry guys i'll fix this in a future push i just
+//       wanted to get it working for now...
 
 // functionally the same as ContactActivity. might be able to condense these into one file.
 // see that file for comments.
@@ -56,6 +61,14 @@ public class MedicationActivity extends AppCompatActivity
         TextInputEditText inputDosage = form.findViewById(R.id.inputDosage);
         TextView inputTime = form.findViewById(R.id.timeText);
 
+        ToggleButton toggleMonday = form.findViewById(R.id.toggleMonday);
+        ToggleButton toggleTuesday = form.findViewById(R.id.toggleTuesday);
+        ToggleButton toggleWednesday = form.findViewById(R.id.toggleWednesday);
+        ToggleButton toggleThursday = form.findViewById(R.id.toggleThursday);
+        ToggleButton toggleFriday = form.findViewById(R.id.toggleFriday);
+        ToggleButton toggleSaturday = form.findViewById(R.id.toggleSaturday);
+        ToggleButton toggleSunday = form.findViewById(R.id.toggleSunday);
+
         Button setTimeButton = form.findViewById(R.id.buttonSetTime);
         setTimeButton.setOnClickListener(v -> {
             // TODO: make the spinner reflect the previously set time.
@@ -68,6 +81,14 @@ public class MedicationActivity extends AppCompatActivity
 
             inputName.setText(existing.getName());
             inputDosage.setText(existing.getDosage());
+
+            toggleMonday.setChecked(existing.getWeekday(Medication.Weekday.MONDAY));
+            toggleTuesday.setChecked(existing.getWeekday(Medication.Weekday.TUESDAY));
+            toggleWednesday.setChecked(existing.getWeekday(Medication.Weekday.WEDNESDAY));
+            toggleThursday.setChecked(existing.getWeekday(Medication.Weekday.THURSDAY));
+            toggleFriday.setChecked(existing.getWeekday(Medication.Weekday.FRIDAY));
+            toggleSaturday.setChecked(existing.getWeekday(Medication.Weekday.SATURDAY));
+            toggleSunday.setChecked(existing.getWeekday(Medication.Weekday.SUNDAY));
         }
         // TODO: make inputTime text update when the time selector exits.
         inputTime.setText(medicationTime.toString());
@@ -103,10 +124,67 @@ public class MedicationActivity extends AppCompatActivity
                         existing.setName(name);
                         existing.setDosage(dosage);
                         existing.setTime(medicationTime);
+
+                        if (toggleMonday.isChecked())
+                        {
+                            existing.setWeekday(Medication.Weekday.MONDAY);
+                        }
+                        if (toggleTuesday.isChecked())
+                        {
+                            existing.setWeekday(Medication.Weekday.TUESDAY);
+                        }
+                        if (toggleWednesday.isChecked())
+                        {
+                            existing.setWeekday(Medication.Weekday.WEDNESDAY);
+                        }
+                        if (toggleThursday.isChecked())
+                        {
+                            existing.setWeekday(Medication.Weekday.THURSDAY);
+                        }
+                        if (toggleFriday.isChecked())
+                        {
+                            existing.setWeekday(Medication.Weekday.FRIDAY);
+                        }
+                        if (toggleSaturday.isChecked())
+                        {
+                            existing.setWeekday(Medication.Weekday.SATURDAY);
+                        }
+                        if (toggleSunday.isChecked())
+                        {
+                            existing.setWeekday(Medication.Weekday.SUNDAY);
+                        }
                         adapter.notifyItemChanged(position);
                     } else {
                         int newPosition = DataHandler.getInstance().addMedication(new Medication(name, dosage));
                         DataHandler.getInstance().getMedication(newPosition).setTime(medicationTime);
+                        if (toggleMonday.isChecked())
+                        {
+                            DataHandler.getInstance().getMedication(newPosition).setWeekday(Medication.Weekday.MONDAY);
+                        }
+                        if (toggleTuesday.isChecked())
+                        {
+                            DataHandler.getInstance().getMedication(newPosition).setWeekday(Medication.Weekday.TUESDAY);
+                        }
+                        if (toggleWednesday.isChecked())
+                        {
+                            DataHandler.getInstance().getMedication(newPosition).setWeekday(Medication.Weekday.WEDNESDAY);
+                        }
+                        if (toggleThursday.isChecked())
+                        {
+                            DataHandler.getInstance().getMedication(newPosition).setWeekday(Medication.Weekday.THURSDAY);
+                        }
+                        if (toggleFriday.isChecked())
+                        {
+                            DataHandler.getInstance().getMedication(newPosition).setWeekday(Medication.Weekday.FRIDAY);
+                        }
+                        if (toggleSaturday.isChecked())
+                        {
+                            DataHandler.getInstance().getMedication(newPosition).setWeekday(Medication.Weekday.SATURDAY);
+                        }
+                        if (toggleSunday.isChecked())
+                        {
+                            DataHandler.getInstance().getMedication(newPosition).setWeekday(Medication.Weekday.SUNDAY);
+                        }
                         adapter.notifyItemInserted(newPosition);
                     }
                     updateEmptyState();
