@@ -129,21 +129,38 @@ public class CalendarActivity extends AppCompatActivity
 
         for (int i = 0; i < data.getMedicationCount(); i++) {
             Medication med = data.getMedication(i);
-            if (isTakenOn(med, year, month, day)) {
+            if (med != null && isScheduledOn(med, year, month, day)) {
                 result.add(med);
             }
         }
         return result;
     }
 
-    // TODO: Medication doesn't have routines yet, so for now everything is highlighted
-    private boolean isTakenOn(Medication med, int year, int month, int day)
-    {
-        return true;
-    }
-
     private String monthName(int month)
     {
         return new DateFormatSymbols().getMonths()[month];
+    }
+
+
+    // a medication is scheduled on a date if the user picked that weekday for it
+    private boolean isScheduledOn(Medication med, int year, int month, int day)
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.clear();
+        cal.set(year, month, day);
+        return med.getWeekday(toWeekday(cal.get(Calendar.DAY_OF_WEEK)));
+    }
+
+    private Medication.Weekday toWeekday(int calendarDay)
+    {
+        switch (calendarDay) {
+            case Calendar.MONDAY:    return Medication.Weekday.MONDAY;
+            case Calendar.TUESDAY:   return Medication.Weekday.TUESDAY;
+            case Calendar.WEDNESDAY: return Medication.Weekday.WEDNESDAY;
+            case Calendar.THURSDAY:  return Medication.Weekday.THURSDAY;
+            case Calendar.FRIDAY:    return Medication.Weekday.FRIDAY;
+            case Calendar.SATURDAY:  return Medication.Weekday.SATURDAY;
+            default:                 return Medication.Weekday.SUNDAY;
+        }
     }
 }

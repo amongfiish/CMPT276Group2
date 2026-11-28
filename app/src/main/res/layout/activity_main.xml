@@ -34,20 +34,48 @@
         android:id="@+id/logoutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:text="Log Out"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="Log Out" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <TextView
+        android:id="@+id/dueHeading"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:text="Today's Medications"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoutButton" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:padding="16dp"
         app:layout_constraintBottom_toTopOf="@+id/navbarView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/dueHeading" />
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <TextView
+        android:id="@+id/emptyMedsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No medications yet.\nTap Add Medication to get started."
+        android:textAlignment="center"
+        android:textColor="#7A7A7A"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/navbarView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dueHeading" />
 
     <ca.accessarchitects.cmpt276group2.NavbarView
         android:id="@+id/navbarView4"

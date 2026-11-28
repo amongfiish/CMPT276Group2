@@ -2,13 +2,17 @@ package ca.accessarchitects.cmpt276group2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,6 +22,10 @@ public class MainActivity extends AppCompatActivity
 
     private FirebaseAuth mAuth;
     private Button logoutButton;
+
+    // the list of medications with Taken buttons
+    private TakeMedicationAdapter dueAdapter;
+    private TextView emptyMedsText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -57,6 +65,13 @@ public class MainActivity extends AppCompatActivity
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         });
+
+        // medication list with Taken buttons
+        emptyMedsText = findViewById(R.id.emptyMedsText);
+        RecyclerView dueList = findViewById(R.id.ScrollView);
+        dueAdapter = new TakeMedicationAdapter();
+        dueList.setLayoutManager(new LinearLayoutManager(this));
+        dueList.setAdapter(dueAdapter);
     }
 
     @Override
@@ -71,5 +86,16 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             finish();
         }
+    }
+
+    // refresh whenever we come back, e.g. after adding a medication
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        dueAdapter.notifyDataSetChanged();
+
+        boolean hasMedications = DataHandler.getInstance().getMedicationCount() > 0;
+        emptyMedsText.setVisibility(hasMedications ? View.GONE : View.VISIBLE);
     }
 }
