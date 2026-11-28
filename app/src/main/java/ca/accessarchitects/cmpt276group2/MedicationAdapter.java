@@ -41,6 +41,21 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
         Medication medication = DataHandler.getInstance().getMedication(position);
         holder.nameView.setText(medication.getName());
         holder.dosageView.setText(medication.getDosage());
+
+        StringBuilder timeViewText = new StringBuilder(medication.getTime().toString() + " (");
+        for (Medication.Weekday weekday : Medication.Weekday.values())
+        {
+            if (medication.getWeekday(weekday))
+            {
+                timeViewText
+                        .append(weekday.toString().charAt(0))
+                        .append(weekday.toString().charAt(1))
+                        .append(",");
+            }
+        }
+        timeViewText.append(")");
+
+        holder.timeView.setText(timeViewText.toString());
         // TODO: holder.imageView.setImageBitmap(..);
 
         holder.editView.setOnClickListener(v -> {
@@ -60,6 +75,7 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
     {
         final TextView nameView;
         final TextView dosageView;
+        final TextView timeView;
         // TODO: final ImageView imageView;
         final ImageButton editView;
 
@@ -68,6 +84,7 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
             super(itemView);
             nameView = itemView.findViewById(R.id.medicationName);
             dosageView = itemView.findViewById(R.id.medicationDosage);
+            timeView = itemView.findViewById(R.id.medicationTime);
             // TODO: imageView = itemView.findViewById(R.id.medicationImage);
             editView = itemView.findViewById(R.id.editMedicationButton);
         }
