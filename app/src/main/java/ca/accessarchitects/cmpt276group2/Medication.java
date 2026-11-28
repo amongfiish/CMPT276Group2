@@ -3,7 +3,7 @@ package ca.accessarchitects.cmpt276group2;
 import java.time.LocalTime;
 import java.util.EnumMap;
 import java.util.Map;
-import java.util.Vector;
+import java.time.LocalDate;
 
 // stores information about a medication
 public class Medication
@@ -21,6 +21,9 @@ public class Medication
     // misc data
     private String name;
     private String dosage;
+
+    private String lastTakenDate = "";
+
     // TODO image of medication
 
     public Medication(String name, String dosage)
@@ -102,6 +105,21 @@ public class Medication
     public void setDosage(String dosage)
     {
         this.dosage = dosage;
+    }
+
+    public boolean isTakenToday()
+    {
+        return lastTakenDate.equals(LocalDate.now().toString());
+    }
+
+    public void markTakenToday()
+    {
+        lastTakenDate = LocalDate.now().toString();
+    }
+
+    public void markNotTaken()
+    {
+        lastTakenDate = "";
     }
 
     // TODO: addRoutine() and related for release 2 :)

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Comparator;
 
 // Shows the medications for whichever calendar day the user tapped.
 public class DayMedicationAdapter extends RecyclerView.Adapter<DayMedicationAdapter.ViewHolder>
@@ -20,6 +21,10 @@ public class DayMedicationAdapter extends RecyclerView.Adapter<DayMedicationAdap
     {
         medications.clear();
         medications.addAll(newMedications);
+
+        medications.sort(Comparator.comparing(Medication::getTime,
+                Comparator.nullsFirst(Comparator.naturalOrder())));
+
         notifyDataSetChanged();
     }
 
@@ -37,7 +42,7 @@ public class DayMedicationAdapter extends RecyclerView.Adapter<DayMedicationAdap
     {
         Medication med = medications.get(position);
         holder.name.setText(med.getName());
-        holder.dosage.setText(med.getDosage());
+        holder.dosage.setText(med.getDosage() + " · " + med.getTime());
     }
 
     @Override
